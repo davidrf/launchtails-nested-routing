@@ -19,6 +19,18 @@
       <%= f.label :description %>
       <%= f.text_area :description %>
 
+      <%= f.label :featured %>
+      <%= f.check_box :featured %>
+
+      <%= f.label :category_id %>
+      <%= f.select :category_id, Category.all.map { |c| [c.name, c.id] } %>
+
+      <%= f.label :alcohol_level, "Alcohol Level" %>
+      <% Drink::ALCOHOL_LEVELS.each do |level| %>
+        <%= f.radio_button :alcohol_level, level %>
+        <%= f.label :alcohol_level, level, value: level %>
+      <% end %>
+
       <%= f.submit "Add Drink" %>
     <%- end -%>
   </div>
