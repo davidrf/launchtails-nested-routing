@@ -14,7 +14,7 @@ class DrinksController < ApplicationController
   end
 
   def index
-    @drinks = Drink.page(params[:page])
+    @drinks = Drink.where(category_id: params[:category_id]).page(params[:page])
   end
 
   protected
